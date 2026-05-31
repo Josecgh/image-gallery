@@ -1,9 +1,10 @@
 import { Component, input } from '@angular/core';
 import { Image } from '../../interfaces/image';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-image-item',
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: './image-item.html',
   styleUrl: './image-item.css',
 })

@@ -1,4 +1,4 @@
 <div [class.featured]="isFeatured()">
-  <img [src]="imageData().src" [alt]="imageData().alt">
-  <h2>Nombre: {{imageData().alt}}</h2>
+  <img [ngSrc]="imageData().src" [alt]="imageData().alt" width="200" height="300">
+  <h2>Nombre: {{ imageData().alt }}</h2>
 </div>
