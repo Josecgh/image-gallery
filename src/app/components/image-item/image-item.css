@@ -1,0 +1,24 @@
+
+div img {
+  width: 30%;
+  border-radius: 4px;
+}
+
+
+div h2 {
+  font-size: 1rem;
+  margin-top: 12px;
+  font-family: sans-serif;
+}
+
+div.featured {
+  border: 2px solid #e50914;
+}
+
+div.featured img {
+  width: 50%;
+}
+
+div.featured h2 {
+  color: #e50914;
+}
