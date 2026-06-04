@@ -1,9 +1,19 @@
 <h2>Colección de imágenes:</h2>
 
+@if (selectedImageIds().size > 0) {
+  <button 
+    class="btn-delete-mass" 
+    (click)="borrarSeleccionadas()">
+    Borrar seleccionadas ({{ selectedImageIds().size }})
+  </button>
+}
+
 @for(img of images(); track img.id) {
   <app-image-item
     [image]="img"
-    [isFeatured]="$first"
+    [isFeatured]="img.id === featuredImageId()"
+    [isSelected]="selectedImageIds().has(img.id)"
     (deleteImage)="eliminarFoto($event)"
+    (selectImage)="toggleSelection(img.id)"
   />
 }

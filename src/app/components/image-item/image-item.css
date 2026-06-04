@@ -13,14 +13,14 @@ div h2 {
   font-family: sans-serif;
 }
 
-div.featured {
-  border: 2px solid #e50914;
-}
-
 div.featured img {
   width: 50%;
 }
 
 div.featured h2 {
   color: #e50914;
+}
+
+div.selected {
+  border: #e50914 solid 1px;
 }

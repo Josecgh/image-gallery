@@ -31,6 +31,8 @@ export class Gallery {
     this.images.update(arrayActual => arrayActual.filter(img => img.id !== idBorrar));
   }
 
+  featuredImageId = signal<string>(this.images()[0]?.id || "");
+
   selectedImageIds = signal<Set<string>>(new Set());
 
   toggleSelection(id: string) {
@@ -43,5 +45,19 @@ export class Gallery {
       }
       return newSet;
     });
+  }
+  borrarSeleccionadas(): void {
+    this.images.update(arrayActual => 
+      arrayActual.filter(img => !this.selectedImageIds().has(img.id))
+    );
+
+    const imagenesRestantes = this.images();
+    const existeDestacada = imagenesRestantes.some(img => img.id === this.featuredImageId());
+    
+    if (!existeDestacada) {
+      this.featuredImageId.set(imagenesRestantes[0]?.id || "");
+    }
+
+    this.selectedImageIds.set(new Set());
   }
 }

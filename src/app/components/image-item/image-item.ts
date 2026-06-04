@@ -11,7 +11,7 @@ import { NgOptimizedImage } from '@angular/common';
 export class ImageItem {
   image = input.required<Image>();
   isFeatured = input<boolean>(false);
-  isSelected = input(false);
+  isSelected = input<boolean>(false);
 
   deleteImage = output<string>();
   onDeleteClick(event: MouseEvent): void {
@@ -19,4 +19,10 @@ export class ImageItem {
 
     this.deleteImage.emit(this.image().id);
   }
+
+  selectImage = output<string>();
+  onImageClick() {
+    this.selectImage.emit(this.image().id);
+  }
+
 }

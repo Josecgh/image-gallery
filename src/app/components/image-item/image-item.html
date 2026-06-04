@@ -1,4 +1,9 @@
-<div class="image-container" [class.featured]="isFeatured()">
+<div
+  class="image-container"
+  [class.featured]="isFeatured()"
+  [class.selected-border]="isSelected()"
+  (click)="onImageClick()"
+>
   <img [ngSrc]="image().src" [alt]="image().alt" width="200" height="300" />
   <h2>{{image().alt}}</h2>
   
