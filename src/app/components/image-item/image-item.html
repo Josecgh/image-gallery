@@ -1,4 +1,6 @@
-<div [class.featured]="isFeatured()">
-  <img [ngSrc]="imageData().src" [alt]="imageData().alt" width="200" height="300">
-  <h2>Nombre: {{ imageData().alt }}</h2>
+<div class="image-container" [class.featured]="isFeatured()">
+  <img [ngSrc]="image().src" [alt]="image().alt" width="200" height="300" />
+  <h2>{{image().alt}}</h2>
+  
+  <button (click)="onDeleteClick($event)">Borrar</button>
 </div>

@@ -1,8 +1,9 @@
 <h2>Colección de imágenes:</h2>
 
-@for(img of images; track img.id) {
+@for(img of images(); track img.id) {
   <app-image-item
-    [imageData]="img"
+    [image]="img"
     [isFeatured]="$first"
+    (deleteImage)="eliminarFoto($event)"
   />
 }

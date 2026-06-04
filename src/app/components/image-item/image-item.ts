@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Image } from '../../interfaces/image';
 import { NgOptimizedImage } from '@angular/common';
 
@@ -9,7 +9,14 @@ import { NgOptimizedImage } from '@angular/common';
   styleUrl: './image-item.css',
 })
 export class ImageItem {
-  imageData = input.required<Image>();
-
+  image = input.required<Image>();
   isFeatured = input<boolean>(false);
+  isSelected = input(false);
+
+  deleteImage = output<string>();
+  onDeleteClick(event: MouseEvent): void {
+    event.stopPropagation();
+
+    this.deleteImage.emit(this.image().id);
+  }
 }
